@@ -1,0 +1,36 @@
+{
+    "overall": {
+        "task": "classifier",
+        "attacker": "tina",
+        "logger": "json",
+        "resume": null
+    },
+    "task": {
+        "concept": "vangogh",
+        "model_name_or_path": "path/to/stable-diffusion-v1-4",
+        "target_ckpt": "path/to/ESD-VanGogh-Diffusers-UNet-xattn.pt",
+        "cache_path": ".cache",
+        "dataset_path": "files/dataset/vangogh",
+        "criterion": "l2",
+        "classifier_dir":"results/checkpoint-2800"
+    },
+    "attacker": {
+        "insertion_location": "prefix_k",
+        "k": 3,
+        "iteration": 40,
+        "attack_idx": 0,
+        "eval_seed": 0,
+        "universal": false,
+        "sequential": true,
+        "tina": {
+            "lr": 0.001,
+            "opt_round": 25,
+            "num_ddim_steps": 50
+        }
+    },
+    "logger": {
+        "json": {
+            "root": "files/results/tina_esd_vangogh_classifier"
+        }
+    }
+}
